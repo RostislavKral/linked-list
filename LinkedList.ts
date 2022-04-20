@@ -89,6 +89,24 @@ class LinkedList implements IList{
     getHead(): NodeEl | null {
         return this.head;
     }
+
+    reset(): void {
+        this.head = null;
+    }
+
+    find(val: number): NodeEl|boolean {
+
+        let temp = this.head;
+
+        if (temp === null) return false;
+
+        while (temp.next !== null) {
+            if (temp.next.data === val) return temp.next;
+            temp = temp.next;
+        }
+
+        return false;
+    }
 }
 
 export default LinkedList;
